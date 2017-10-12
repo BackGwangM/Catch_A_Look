@@ -17,7 +17,7 @@ $(function () {
         canvas.clear()
         console.log("전체 지우기 실행");
     })
-    $('#apply_color').click(function(){
+    $('#choose_color').change(function(){
         target = $('#choose_color').val();
         console.log("색 해쉬 코드 : "+target);
         canvas.freeDrawingBrush.color = target;
