@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="editer.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="http://fabricjs.com/lib/fabric.js"></script>
+    <script src="editer.js"></script>
+</head>
+<body>
+    <div id="flying_tab">
+            <button id="btn">출력</button>
+            <div id="pick">
+                <div id="#000000" class="color black"></div>
+                <div id="#FFFFFF" class="color white"></div>
+                <div id="#FF0000" class="color red" ></div>
+                <div id="#00FF00" class="color green" ></div><br>
+                <div id="#0000FF" class="color blue" ></div>
+                <div id="#FFFF00" class="color yellow"></div>
+                <div id="#00FFFF" class="color bluish_green" ></div>
+                <div id="#FF00FF" class="color purple" ></div>
+            </div>
+            <div id="button">
+                <input type="color" id="choose_color"> <button id="apply_color">적용</button><br>
+                <p id="info_pen_width">20</p><input type="range" min="0" max="150" value="20" id="change_pen_width">
+                <div id="choose_Pen_mode">
+                    <input type="radio" name="Choose_Mode" checked="true" id="Pencil">펜 
+                    <input type="radio" name="Choose_Mode" id="Circle">원 
+                </div>
+                
+                
+                <button id="clear-canvas">전체 지우기</button>
+            </div>
+    </div>
+    
+    
+    
+    <canvas id="c" height="600" width="1000"></canvas>
+
+
+    <div id="svg-tag">
+        
+    </div>
+    <script>
+        var width = 20;
+        var mode;
+    $('#btn').click(function(){
+        var trsvg = canvas.toSVG();
+        $('#svg-tag').text(trsvg);
+    });
+    $('#change_pen_width').change(function(){
+        width = $('#change_pen_width').val();
+        console.log("굵기 : "+width);
+        $('#info_pen_width').text(width);
+        canvas.freeDrawingBrush.width = parseInt(width,10) || 1;
+    })
+    document.getElementById('choose_Pen_mode').addEventListener('click', function (e) {
+            mode = e.target.id;
+            console.log("Free Drowing Mode : "+mode);
+            canvas.freeDrawingBrush = new fabric[mode + 'Brush'](canvas);
+            canvas.freeDrawingBrush.width = parseInt(width,10) || 1;
+        });
+    </script>
+</body>
+</html>
