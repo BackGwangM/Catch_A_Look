@@ -6,13 +6,16 @@
 }
 #flying_tab{
     position: fixed;
-    top:30vh;
+    top:25vh;
     right: 1vw;
     background-color: #BBBBBB;
-    height: 45vh;
+    height: 50vh;
     width: 15vw;
 }
 #info_pen_width{
+    display: inline-block;
+}
+#info_play_sec{
     display: inline-block;
 }
 .color{

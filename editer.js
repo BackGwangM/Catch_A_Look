@@ -1,6 +1,9 @@
 var canvas;
 var clearEl = $('clear-canvas');
 var target;
+var width = 20;
+var mode;
+
 $(function () {
     
     canvas = window._canvas = new fabric.Canvas('c');
@@ -23,3 +26,11 @@ $(function () {
         canvas.freeDrawingBrush.color = target;
     })
 });
+/*
+function noEvent() {
+    if (event.keyCode == 123) {
+            return false;
+        }
+    }
+document.onkeydown = noEvent;
+*/
