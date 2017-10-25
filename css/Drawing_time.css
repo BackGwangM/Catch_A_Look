@@ -2,6 +2,11 @@ body{
     margin-top: 13.8vh;
 }
 
+#canvas_border{
+    border: 1px solid black;
+    width: auto;
+}
+
 #Title_Bar{
     position: absolute;
     top: 0;
@@ -17,6 +22,7 @@ body{
 }
 #Title_text{
     color: #ffffff;
+    margin-left: 2vw;
     font-size: 5vh;
     font-family: 'NanumSquare';
     font-weight: 800;
