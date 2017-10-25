@@ -5,7 +5,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="editer.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="http://fabricjs.com/lib/fabric.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.1.0/fabric.all.min.js"></script>
     <script src="editer.js"></script>
 </head>
 <body>
@@ -63,7 +63,6 @@
             pic_Info.svg = trsvg;
             pic_Info.sec = sec;
             goto_sever_Array[drawing_tab] = pic_Info;
-            alert(goto_sever_Array[drawing_tab]);
             
             goto_sever_JSON = JSON.stringify(goto_sever_Array);
 
