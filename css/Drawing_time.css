@@ -16,6 +16,47 @@ body{
     border-style: solid; 
     height: 5vh;
 }
+#info_pen_width, #input_sec{
+    font-size: 3vh;
+}
+#change_pen_width, #change_play_sec{
+    font-size: 3vh;
+}
+
+
+input[type=range] {
+	-webkit-appearance: none;
+	-webkit-flex-basis: 50%;
+	-webkit-tap-highlight-color: transparent;
+    background: transparent;
+    width: 15vw;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 10vw;
+    height: 2.5vh;
+    background: transparent;
+    border: 0.5vh solid #1CA5B8;
+    border-radius: 5vh;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 4vh;
+    width: 4vh;
+    margin-top: -1.2vh;
+    border-radius: 5vh;
+    background: #1CA5B8;
+    border: 0.4vh solid #fff;
+    cursor: pointer;
+    box-shadow: 0px 5px 5px -3px #d9d9d9;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+
 
 #Title_Bar{
     position: absolute;
@@ -30,6 +71,7 @@ body{
     align-items: center;
     z-index: 9999;
 }
+
 hr{
     width: 20vw;
 }
@@ -107,8 +149,8 @@ hr{
     display: inline-block;
     height: 3vw;
     width: 3vw;
-    border: 3px solid #555555;
-    margin-bottom: 1px;
+    border: 0.5vh solid #555555;
+    margin-bottom: 0.1vh;
     border-radius:1vw;
     -webkit-border-radius:1vw;
     border-style: solid;
