@@ -6,8 +6,15 @@ var mode;
 
 
 function all_clear(){
-    canvas.clear()
-    console.log("전체 지우기 실행");
+    var clear_cheak = confirm("정말 지우시겠습니까?");
+    if(clear_cheak == true){
+        canvas.clear();
+        console.log("전체 지우기 실행");
+    }
+    else{
+        console.log("전체 지우기 취소");
+    }
+    
 };
 
 $(function () {
