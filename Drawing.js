@@ -5,5 +5,4 @@ if(navigator.appName == 'Netscape' && navigator.userAgent.search('Trident') != -
     history.back();
 }
 
-
 document.write("<div id='canvas_border' style='width:"+screen_h*1.30+"px'><canvas id='c' height='"+screen_h*0.65+"' width='"+screen_h*1.30+"'></canvas></div>");
