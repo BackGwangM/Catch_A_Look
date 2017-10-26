@@ -53,7 +53,7 @@
         var trsvg_fun = function(){
             trsvg = canvas.toSVG();
             $('#svg-tag').html(trsvg);
-
+            pic_Info.No = drawing_tab;
             pic_Info.svg = trsvg;
             pic_Info.sec = sec;
             goto_sever_Array[drawing_tab] = pic_Info;
