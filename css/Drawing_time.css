@@ -36,6 +36,9 @@ body{
     align-items: center;
     z-index: 9999;
 }
+#sdfs{
+    display: hidden;
+}
 
 hr{
     width: 20vw;
