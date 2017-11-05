@@ -11,13 +11,13 @@ body{
 #login{
     position: absolute;
     z-index: 2;
-    top: 16.25vh;
+    top: 17.25vh;
     left: 32.5vw;
-    padding-top: 5vh;
+    padding-top: 2vh;
     background-color: #ffffff;
     border-radius: 2vh;
     width: 35vw;
-    height: 55vh;
+    height: 50vh;
     box-shadow: 1vh 0.7vw 10vh 0px black;
 }
 
@@ -26,7 +26,7 @@ body{
     animation-duration: 0.5s;
     z-index: 1;
     width: 25vw;
-    height: 55vh;
+    height: 45vh;
     left: 37.5vw;
 }
 #join.change_l{
@@ -34,7 +34,7 @@ body{
         animation-duration: 0.5s;
         z-index: 1;
         width: 25vw;
-        height: 55vh;
+        height: 45vh;
         left: 37.5vw;
 }
 
@@ -45,8 +45,8 @@ body{
     z-index: 1;
     padding-top: 5vh;
     width: 25vw;
-    height: 55vh;
-    top: 28.75vh;
+    height: 45vh;
+    top: 25.5vh;
     left: 37.5vw;
     box-shadow: 1vh 0.7vw 10vh 0px black;
 }
@@ -55,7 +55,7 @@ body{
     animation-duration: 0.5s;
     z-index: 2;
     width: 35vw;
-    height: 55vh;
+    height: 50vh;
     left: 32.5vw;
 }
 
@@ -64,74 +64,83 @@ body{
     animation-duration: 0.5s;
     z-index: 2;
     width: 35vw;
-    height: 55vh;
+    height: 50vh;
     left: 32.5vw;
 }
 
 .title{
     display: flex;
     justify-content: center;
-    font-size: 4vh;
+    font-size: 5vh;
     font-weight: 700;
+    margin-bottom: 5vh;
+}
+#login_t.change_t{
+    color: #ADADAD;
+    font-size: 4vh;
 }
 .change_title{
-    display: flex;
-    justify-content: center;
-    font-size: 4vh;
-    font-weight: 700;
     position: relative;
-    top: 48.5vh;
-}
-#login .title, #join .title{
-    font-size: 5vh;
-}
-
-@keyframes animat_ch{
-    to{
-        width: 25vw;
-        height: 55vh;
-        left: 37.5vw;
+    top: 40vh;
+    font-size: 4vh;
+    color: #ADADAD;
+    animation-name: change_t;
+    animation-duration: 0.3s;
+}   
+@keyframes change_t{
+    from{
+        top:0;
     }
+    to{
+        top:38.5vh;
+    }
+}
+@keyframes animat_ch{
     from{
         width: 35vw;
-        height: 55vh;
+        height: 50vh;
         left: 32.5vw;
+    }
+    to{
+        width: 25vw;
+        height: 45vh;
+        left: 37.5vw;
     }
 }
 
 @-webkit-keyframes animat_ch{
-    to{
-        width: 25vw;
-        height: 55vh;
-        left: 37.5vw;
-    }
     from{
         width: 35vw;
-        height: 55vh;
+        height: 50vh;
         left: 32.5vw;
+    }
+    to{
+        width: 25vw;
+        height: 45vh;
+        left: 37.5vw;
     }
 }
 @keyframes animat_click{
     from{
         width: 25vw;
-        height: 55vh;
+        height: 45vh;
         left: 37.5vw;
     }
     to{
         width: 35vw;
-        height: 55vh;
+        height: 50vh;
         left: 32.5vw;
     }
 }
 @-webkit-keyframes animat_click{
     from{
         width: 25vw;
-        height: 55vh;
+        height: 45vh;
         left: 37.5vw;
     }
     to{
         width: 35vw;
-        height: 55vh;
+        height: 50vh;
         left: 32.5vw;
     }
 }
