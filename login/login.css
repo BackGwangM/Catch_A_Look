@@ -78,6 +78,7 @@ body{
 #login_t.change_t{
     color: #ADADAD;
     font-size: 4vh;
+    cursor: pointer;
 }
 .change_title{
     position: relative;
@@ -86,6 +87,7 @@ body{
     color: #ADADAD;
     animation-name: change_t;
     animation-duration: 0.3s;
+    cursor: pointer;
 }   
 @keyframes change_t{
     from{
@@ -176,12 +178,44 @@ input:focus{
 #pw_span{
     right: 9.1vw;
 }
-#input{
+#input, #login_btn{
     text-align: center;
 }
 #submit:focus{
     outline: none;
 }
+#login_btn{
+    position: relative;
+    top: 2vh;
+}
+
 #submit{
-    
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0);
+    border-width: 0 0 0 0;
+    color: #4AACC5;
+    font-size: 3vh;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    opacity: 0;
+    margin-top: 7vh;
+}
+
+#submit.submit_on{
+    animation-name: submit_opacity;
+    animation-duration: 0.5s;
+    opacity: 1;
+    margin-top: 0;
+}
+
+@keyframes submit_opacity{
+    from{
+        opacity: 0;
+        margin-top: 7vh;
+    }
+    to{
+        opacity: 1;
+        margin-top: 0;
+    }
 }
