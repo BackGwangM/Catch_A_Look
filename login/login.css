@@ -50,8 +50,18 @@ body{
     left: 37.5vw;
     box-shadow: 1vh 0.7vw 10vh 0px black;
 }
+
 #join.change_j{
     animation-name: animat_click;
+    animation-duration: 0.5s;
+    z-index: 2;
+    width: 35vw;
+    height: 65vh;
+    left: 32.5vw;
+}
+
+#login.change_j{
+    animation-name: animat_click_l;
     animation-duration: 0.5s;
     z-index: 2;
     width: 35vw;
@@ -59,13 +69,14 @@ body{
     left: 32.5vw;
 }
 
-#login.change_j{
-    animation-name: animat_click;
-    animation-duration: 0.5s;
-    z-index: 2;
-    width: 35vw;
-    height: 50vh;
-    left: 32.5vw;
+#join_input{
+    width: 20vw;
+
+    margin-left: 7vw;
+}
+
+#join_input.hidden{
+    display: none;
 }
 
 .title{
@@ -88,7 +99,7 @@ body{
     animation-name: change_t;
     animation-duration: 0.3s;
     cursor: pointer;
-}   
+}
 @keyframes change_t{
     from{
         top:0;
@@ -130,11 +141,36 @@ body{
     }
     to{
         width: 35vw;
-        height: 50vh;
+        height: 65vh;
         left: 32.5vw;
     }
 }
 @-webkit-keyframes animat_click{
+    from{
+        width: 25vw;
+        height: 45vh;
+        left: 37.5vw;
+    }
+    to{
+        width: 35vw;
+        height: 65vh;
+        left: 32.5vw;
+    }
+}
+
+@keyframes animat_click_l{
+    from{
+        width: 25vw;
+        height: 45vh;
+        left: 37.5vw;
+    }
+    to{
+        width: 35vw;
+        height: 50vh;
+        left: 32.5vw;
+    }
+}
+@-webkit-keyframes animat_click_l{
     from{
         width: 25vw;
         height: 45vh;
@@ -147,7 +183,7 @@ body{
     }
 }
 
-#id,#pw{
+input{
     width: 20vw;
     font-size: 4.5vh;
     font-weight: 500;
@@ -162,7 +198,7 @@ input:focus{
     outline: none;
 }
 
-#id_span,#pw_span{
+.span{
     height: 3vh;
     font-size: 3vh;
     font-weight: 600;
