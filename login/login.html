@@ -7,9 +7,10 @@
     <link rel="stylesheet" href="login.css">
 </head>
 <body>
+<form action="/" method="post">
     <div id="login" onclick="ani_log()">
         <span class="title" id="login_t">SIGN IN</span>
-        <form action="/" method="post">
+        
             <div id="input">
                 <p class="span" id="id_span">ID</p>
                 <input type="text" name="id" id="id" required/>
@@ -20,10 +21,10 @@
             <div id="login_btn">
                 <input type="submit" value="Sign In" id="submit">
             </div>
+        </div>    
         </form>
         
-        
-    </div>
+    
     
     <div id="join" onclick="ani_join()">
         <span class="title change_title" id="join_t">CREATE ACCOUNT</span>
