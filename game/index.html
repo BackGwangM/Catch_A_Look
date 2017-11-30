@@ -18,6 +18,7 @@
     <div id="pick_picture">
 
     </div>
+    <div id='canvas_border' style='width:1000px; height:500px'><canvas id='c' height='500' width='1000'></canvas></div>
     <div id="Drawing_menu">
         
         
@@ -58,6 +59,8 @@
 
     <script>
         var trsvg;
+        var user_name = "bgm";
+        var room_num = 1;
         var except_string_1 = /e/;
         var except_string_2 = /E/;
         var except_string_3 = /ㄷ/;
@@ -72,6 +75,8 @@
             trsvg = canvas.toSVG();
             var result = trsvg.replace(/"/gi,"'");
             trsvg = result.replace(/\n/gi,"");
+            pic_Info.user_nickname = user_name;
+            pic_Info.room_num = room_num;
             pic_Info.No = drawing_tab;
             pic_Info.svg = trsvg;
             pic_Info.sec = sec;
@@ -80,11 +85,12 @@
             $('#sdfs').val(goto_sever_JSON);
                 $.ajax({
                     type : 'post',
-                    url : 'dhdhdhdh.html',
+                    url : 'test.html',
                     data : {'text':$('#sdfs').val()},
                     processData : true,
                     /*contentType : false,*/
                     success : function(html) {
+                        alert(html);
                         alert("파일 업로드하였습니다.");
                     },
                     error : function(error) {

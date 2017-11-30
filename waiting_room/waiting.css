@@ -1,0 +1,59 @@
+body{
+    margin: 0 0 0 0;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+	background-image: url(wm_back.png);
+	font-family: "NanumSquare",Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif"
+}
+#background_color{
+	position: absolute;
+	background-color: #FFFFFF;
+	opacity: 0.5;
+	width: 85vw;
+	height: 80vh;
+	top: 15vh;
+	left: 7.5vw;
+}
+#waiting_menu{
+	position: absolute;
+	top: 17.5vh;
+	width: 50vw;
+	left: 12.5vw;
+	height: 15vh;
+	background-color: #FFFFFF;
+	border-radius: 2vh;
+	display: flex;
+	align-items: center;
+	padding-left: 2vw;
+}
+#waiting_menu span{
+	color: #512323;
+	font-size: 7.5vh;
+	font-weight: 700;
+	cursor: pointer;
+}
+
+#waiting_menu #make_room{
+	font-size: 7vh;
+	position: absolute;
+	right: 2vw;
+}
+#game_room{
+	position: absolute;
+	top:35vh;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	width: 52vw;
+	height: 55vh;
+	left: 12.5vw;
+}
+
+html {scrollbar-3dLight-Color: #FF0000; scrollbar-arrow-color: #FF9933; scrollbar-base-color: #0000FF; scrollbar-Face-Color: #FF9933; scrollbar-Track-Color: #FFD6D6; scrollbar-DarkShadow-Color: #FF00FF; scrollbar-Highlight-Color: #000000; scrollbar-Shadow-Color: #FF9933}
+
+::-webkit-scrollbar-button:start:decrement, ::-webkit-scrollbar-button:end:increment {display: block; height: 10px; background-color: rgba(0,0,0,0)}
+
+::-webkit-scrollbar {width: 1vw; height: 3vh; border: 0 solid #fff; }
+::-webkit-scrollbar-track {border-radius: 8px; background: #FFD6D6; -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,.2)}
+::-webkit-scrollbar-thumb {height: 50px; width: 50px; background: #FFFFFF; -webkit-border-radius: 8px; border-radius: 8px; -webkit-box-shadow: inset 0 0 4px #FFFFFF}
