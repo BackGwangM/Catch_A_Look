@@ -2,20 +2,48 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>대기실</title>
+	<title>대기실</title>
+	<script src="waiting_room.js"></script>
     <link rel="stylesheet" href="waiting.css">
 	<link rel="stylesheet" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
 </head>
 <body>
+	<div id="darkly" class="hidden" onclick="close_popup()"></div>
+	</div>
 	<div id="background_color"></div>
 	<!--대기실 배경 div-->
 	<div id="waiting_menu">
 		<span id="waiting_room">대기실</span>
-		<span id="make_room">방 만들기</span>
+	</div>
+	<div id="make_room" onclick="want_room()">
+		<span>방 만들기</span>
 	</div>
 	
 	<div id="game_room">
-	가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>v가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>가<br>
+		<script>
+			for(var i = 1; i<101; i++){
+				document.write('<div class="room_select"><p class="room_name">뀨규규 '+i+'번째</p><p class="room_master">인정? 어 인정!</p><span class="room_member">3/6 명</span></div>');
+			}
+		</script>
+	</div>
+	<div id="add_room" class="hidden">
+		<img src="add_room.png" alt="방 생성을 위한 이미지 입니다." style="height:90vh; z-index:11; display:block;">
+		<div id="add_room_page">
+			<p id="add_room_title">방 생성</p>
+
+			<div id="input">
+				<p class="add_room_title--input">방 제목</p><br>
+				<input type="text" id="room_name--input" maxlength="15"><br>
+				<p class="add_room_title--input">방 설명</p>
+			</div>
+			
+		</div>
+		
+		
+	</div>
+
+	<div id="chat">
+
 	</div>
 </body>
 </html>
