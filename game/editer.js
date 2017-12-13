@@ -1,4 +1,4 @@
-var canvas;
+﻿var canvas;
 var clearEl = $('clear-canvas');
 var target;
 var width = 20;
@@ -35,7 +35,12 @@ $(function () {
         target = $('#choose_color').val();
         console.log("색 해쉬 코드 : "+target);
         canvas.freeDrawingBrush.color = target;
-    })
+    });
+    $(".canvas-container").mouseup(function(e) {
+        console.log("마우스 떼면 전송");
+        setTimeout("trsvg_fun()", 100);
+        
+    });
 });
 /*
 function noEvent() {

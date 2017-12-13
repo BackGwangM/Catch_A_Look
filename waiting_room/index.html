@@ -6,8 +6,11 @@
 	<script src="waiting_room.js"></script>
     <link rel="stylesheet" href="waiting.css">
 	<link rel="stylesheet" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 </head>
-<body>
+<body onresize="parent.resizeTo(1280,700)" onload="parent.resizeTo(1280,700)">
+	<input type="hidden" id="user_nickname">
 	<div id="darkly" class="hidden" onclick="close_popup()"></div>
 	</div>
 	<div id="background_color"></div>
@@ -30,20 +33,49 @@
 		<img src="add_room.png" alt="방 생성을 위한 이미지 입니다." style="height:90vh; z-index:11; display:block;">
 		<div id="add_room_page">
 			<p id="add_room_title">방 생성</p>
-
 			<div id="input">
-				<p class="add_room_title--input">방 제목</p><br>
+				<p  class="add_room_title--input">방 제목</p><br>
 				<input type="text" id="room_name--input" maxlength="15"><br>
-				<p class="add_room_title--input">방 설명</p>
+				<span class="popup_btn" onclick="close_popup()">Close</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="popup_btn" onclick="make_room()">OK</span>
 			</div>
 			
 		</div>
-		
-		
 	</div>
 
 	<div id="chat">
-
+		<div id="chat_title">
+			<span>채팅창</span>
+		</div>
+		<div id="chating_list">
+			
+		</div>
+		<input type="text" id="chat_input">
 	</div>
+	<script>
+	var socket = io.connect('localhost:3000');
+	$("#chat_input").keyup(function(event) {
+    if (event.which == 13) {
+		var user = document.getElementById("user_nickname").value;
+		var newText = $('#chat_input').val().replace(/(<([^>]+)>)/ig,"");
+        socket.emit('fromClient',{msg:newText, who: user});
+            $('#chat_input').val('');
+    }
+});
+
+socket.on('toClient',function(data){
+    var divdiv = document.getElementById("chating_list");
+
+    console.log(data.msg);
+    if(data.session == 0) {
+        window.location.href = 'localhost:3000/';
+    } else{
+        if(data.msg.length >0) {
+            $('#chating_list').append('<p><span class="nickname">'+data.who+'</span> | '+data.msg+'</p>');
+        }
+    }
+
+    divdiv.scrollTop = divdiv.scrollHeight; //자동 스크롤
+});
+	</script>
 </body>
 </html>

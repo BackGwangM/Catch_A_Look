@@ -5,6 +5,7 @@
     <title>login</title>
     <link rel="stylesheet" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
     <link rel="stylesheet" href="login.css">
+	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 </head>
 <body>
 	<form method="post">
@@ -17,7 +18,7 @@
                 <input type="password" name="pw" id="pw" onfocus="on_login()" required/>
             </div>
             <div class="login_btn" style="top:2vh;">
-            	<input type="submit" value="Sign In" id="submit">
+            	<input type="button" value="Sign In" id="submit" onclick="openChild()">
             </div>
     </div> 
         </form>
@@ -96,7 +97,16 @@
             variable();
             submit.classList.add('submit_on');
         }
-            
+
+        var openWin;
+    
+        function openChild()
+        {
+            // window.name = "부모창 이름"; 
+            window.name = "parentForm";
+            // window.open("open할 window", "자식창 이름", "팝업창 옵션");
+            openWin = window.open("../waiting_room/index.html", "childForm", "width=1280, height=700, scrollbars=no, resizable=no, toolbars=no, menubar=no");  
+        }
     </script>
 
 </body>

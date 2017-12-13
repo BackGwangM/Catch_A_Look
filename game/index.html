@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Drawing Time!</title>
     <link rel="stylesheet" href="css/Drawing_time.css">
-    <link rel="stylesheet" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
+    <link rel="stylesheet" href="./font.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="fabric.js"></script>
     <script src="editer.js"></script>
@@ -43,11 +43,6 @@
             </div>
             <div id="pen_width"><div id="info_pen_width">20</div></div><input type="range" min="1" max="150" value="20" id="change_pen_width">
             <hr>
-            <div class="menu_title">
-                재생시간
-            </div>
-            <div id="input_sec"><input type="text" min="0" max="10" value="0" size="3" id="change_play_sec">초</div>  
-            <hr>
             <button id="clear-canvas" onclick="all_clear();">전체 지우기</button>
             
         </div>
@@ -58,31 +53,11 @@
     <input type="hidden" id="sdfs"></input>
 
     <script>
-        var trsvg;
-        var user_name = "bgm";
-        var room_num = 1;
-        var except_string_1 = /e/;
-        var except_string_2 = /E/;
-        var except_string_3 = /ㄷ/;
-        var sec = 0;
-        var drawing_tab = 0;
-        var goto_sever_Array = new Array();
-        var pic_Info = new Object();
-        var goto_sever_JSON;
-
-
+        var width;
         var trsvg_fun = function(){
-            trsvg = canvas.toSVG();
-            var result = trsvg.replace(/"/gi,"'");
-            trsvg = result.replace(/\n/gi,"");
-            pic_Info.user_nickname = user_name;
-            pic_Info.room_num = room_num;
-            pic_Info.No = drawing_tab;
-            pic_Info.svg = trsvg;
-            pic_Info.sec = sec;
-            goto_sever_Array[drawing_tab] = pic_Info;
-            goto_sever_JSON = JSON.stringify(goto_sever_Array);
-            $('#sdfs').val(goto_sever_JSON);
+            var trsvg = canvas.toSVG();
+            $('#sdfs').val(trsvg);
+            console.log($('#sdfs').val());
                 $.ajax({
                     type : 'post',
                     url : 'test.html',
@@ -100,37 +75,13 @@
                     }
                 });
             };
-        
+            
         $('#change_pen_width').change(function(){
             width = $('#change_pen_width').val();
             console.log("굵기 : "+width);
             $('#info_pen_width').text(width);
             canvas.freeDrawingBrush.width = parseInt(width,10) || 1;
-            })
-
-        $('#change_play_sec').change(function(){
-            sec = $('#change_play_sec').val();
-            if($('#change_play_sec').val()>=0 && $('#change_play_sec').val() <=10){}
-            else if($('#change_play_sec').val() <0){
-                alert($('#change_play_sec').val()+"은(는) 입력할 수 없습니다\n0이상 10이하인 실수를 입력해주십시요.");
-                $('#change_play_sec').val(0);
-            }
-            else if($('#change_play_sec').val()>10){
-                alert($('#change_play_sec').val()+"은(는) 입력할 수 없습니다\n0이상 10이하인 실수를 입력해주십시요.");
-                $('#change_play_sec').val(10);
-            }
-            else if(Number.isInteger(sec) == false || except_string_1.test(sec)==false || except_string_2.test($('#change_play_sec').val())==false || except_string_3.test($('#change_play_sec').val())==false){
-                alert($('#change_play_sec').val()+"은(는) 입력할 수 없습니다\n0이상 10이하인 실수를 입력해주십시요.");
-                $('#change_play_sec').val(0);
-            }
-            else{
-                alert($('#change_play_sec').val()+"은(는) 입력할 수 없습니다\n0이상 10이하인 실수를 입력해주십시요.");
-                $('#change_play_sec').val(0);
-            }
-            sec = $('#change_play_sec').val();
-            console.log("재생시간 : "+sec+"초");
-            $('#info_play_sec').text(sec);
-        });
+            });
     </script>
 </body>
-</html>
+</html>+
