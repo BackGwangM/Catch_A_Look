@@ -22,6 +22,7 @@
                 height: 20vh;
             }
         </style>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>'
 </head>
 <body >
     
@@ -33,7 +34,7 @@
     <script>
         function checkCookie()
 {
-var username=getCookie("Nickname");
+var username=$.cookie('nickname');
 if (username!="")
   {
   alert("Welcome again " + username);
@@ -41,26 +42,7 @@ if (username!="")
                 // window.open("open할 window", "자식창 이름", "팝업창 옵션");
                 openWin = window.open("/waiting_room/index.html", "childForm", "width=1280, height=700, scrollbars=no, resizable=no, toolbars=no, menubar=no");  
   }
-else 
-  {
-  if (username!="" && username!=null)
-    {
-        location.href("login/index.html")
-    }
-  }
-}
-function getCookie(cname)
-{
-var name = cname + "=";
-var ca = document.cookie.split(';');
-for(var i=0; i<ca.length; i++) 
-  {
-  var c = ca[i].trim();
-  if (c.indexOf(name)==0) return c.substring(name.length,c.length);
-  }
-return "";
-}
-
-    </script>
+}  
+</script>
 </body>
 </html>

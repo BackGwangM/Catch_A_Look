@@ -5,7 +5,8 @@
     <title>login</title>
     <link rel="stylesheet" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
     <link rel="stylesheet" href="login.css">
-	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
 </head>
 <body>
 	<div id="login" onclick="ani_log()">
@@ -50,26 +51,6 @@
 
     </div>
     <script>
-        function setCookie(cookie_name, value, days) {
-        var exdate = new Date();
-        var path = ";path=/"
-        exdate.setDate(exdate.getDate() + days);
-        var cookie_value = escape(value) + ((days == null) ? '' : ';    expires=' + exdate.toUTCString() + path);
-        document.cookie = cookie_name + '=' + cookie_value;
-      }
-      function getCookie(cName) {
-                cName = cName + '=';
-                var cookieData = document.cookie;
-                var start = cookieData.indexOf(cName);
-                var cValue = '';
-                if(start != -1){
-                    start += cName.length;
-                    var end = cookieData.indexOf(';', start);
-                    if(end == -1)end = cookieData.length;
-                    cValue = cookieData.substring(start, end);
-                }
-                return unescape(cValue);
-            }  
     function cheak_input(){
             if($("id_join").val() == null || $("pw_join").val() == null || $("pw_repeat_join").val() == null || $("nick_join").val() == null || $("email_join").val() == null){
 
@@ -120,10 +101,8 @@
         var openWin;
     
         function openChild()
-        {setCookie('NickName', 'hi', 1);
-                        alert(getCookie("Nickname"));
-                        location.href("../index.html");
-                        
+        {
+            $.cookie('Nickname', 'hi', {expire: 1, path: '/'});     
         }
        
     </script>
