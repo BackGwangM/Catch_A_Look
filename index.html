@@ -31,48 +31,36 @@
             <img src="start.png" style="position:relative; z-index:50;" onclick="getCookie()">
     </div>
     <script>
-        function getCookie()
- {
-    var cookieName = "Nickname";
-    var search = cookieName + "=";
-    var cookie = document.cookie;
-
-  // 현재 쿠키가 존재할 경우
-  if( cookie.length > 0 )
+        function checkCookie()
+{
+var username=getCookie("Nickname");
+if (username!="")
   {
-   // 해당 쿠키명이 존재하는지 검색한 후 존재하면 위치를 리턴.
-   startIndex = cookie.indexOf( cookieName );
-
-   // 만약 존재한다면
-   if( startIndex != -1 )
-   {
-    // 값을 얻어내기 위해 시작 인덱스 조절
-    startIndex += cookieName.length;
-
-    // 값을 얻어내기 위해 종료 인덱스 추출
-    endIndex = cookie.indexOf( ";", startIndex );
-
-    // 만약 종료 인덱스를 못찾게 되면 쿠키 전체길이로 설정
-    if( endIndex == -1) endIndex = cookie.length;
-
-    // 쿠키값을 추출하여 리턴
-    window.name = "parentForm";
+  alert("Welcome again " + username);
+  window.name = "parentForm";
                 // window.open("open할 window", "자식창 이름", "팝업창 옵션");
                 openWin = window.open("waiting_room/index.html", "childForm", "width=1280, height=700, scrollbars=no, resizable=no, toolbars=no, menubar=no");  
-   }
-   else
-   {
-    // 쿠키 내에 해당 쿠키가 존재하지 않을 경우
-    console.log('쿠키가 없대요');
-   }
   }
-  else
+else 
   {
-   // 쿠키 자체가 없을 경우
-   console.log("생성은 한거니?");
+  if (username!="" && username!=null)
+    {
+        location.href("login/index.html")
+    }
   }
 }
-        
+function getCookie(cname)
+{
+var name = cname + "=";
+var ca = document.cookie.split(';');
+for(var i=0; i<ca.length; i++) 
+  {
+  var c = ca[i].trim();
+  if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+  }
+return "";
+}
+
     </script>
 </body>
 </html>
