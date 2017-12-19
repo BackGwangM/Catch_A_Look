@@ -36,13 +36,13 @@
     <script>
         function checkCookie()
 {
-var username=$.cookie('nickname');
+var username=$.cookie('Nickname');
 if (username!="")
   {
   alert("Welcome again " + username);
   window.name = "parentForm";
                 // window.open("open할 window", "자식창 이름", "팝업창 옵션");
-                openWin = window.open("/waiting_room/index.html", "childForm", "width=1280, height=700, scrollbars=no, resizable=no, toolbars=no, menubar=no");  
+                openWin = window.open("waiting_room/index.html", "childForm", "width=1280, height=700, scrollbars=no, resizable=no, toolbars=no, menubar=no");  
   }
 }  
 </script>
