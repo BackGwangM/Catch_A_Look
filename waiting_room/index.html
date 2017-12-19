@@ -63,7 +63,7 @@
 	var socket = io.connect('localhost:3000');
 	$("#chat_input").keyup(function(event) {
     if (event.which == 13) {
-		var user = document.getElementById("user_nickname").value;
+		var user = $.cookie('Nickname');;
 		var newText = $('#chat_input').val().replace(/(<([^>]+)>)/ig,"");
         socket.emit('fromClient',{msg:newText, who: user});
             $('#chat_input').val('');
