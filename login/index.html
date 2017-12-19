@@ -52,8 +52,9 @@
     <script>
         function setCookie(cookie_name, value, days) {
         var exdate = new Date();
+        var path = ";path=/"
         exdate.setDate(exdate.getDate() + days);
-        var cookie_value = escape(value) + ((days == null) ? '' : ';    expires=' + exdate.toUTCString());
+        var cookie_value = escape(value) + ((days == null) ? '' : ';    expires=' + exdate.toUTCString() + path);
         document.cookie = cookie_name + '=' + cookie_value;
       }
       function getCookie(cName) {
@@ -120,8 +121,10 @@
     
         function openChild()
         {
-                   setCookie('Nickname', '안녕하세요', 1);
-                   alert(getCookie('Nickname'));
+            alert("환영합니다.");
+                        setCookie('NickName', '값을 넣어주세염', 1);
+                        alert(getCookie(Nickname));
+                        location.href("../index.html");
         }
        
     </script>
