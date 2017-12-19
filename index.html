@@ -28,7 +28,7 @@
     <div style="padding-left:20%; padding-top:7.5%;">
 
             <object id="logo" type="image/svg+xml" data="logo.svg">현재 브라우저는 iframe을 지원하지 않습니다.</object>
-            <img src="start.png" style="position:relative; z-index:50;" onclick="getCookie()">
+            <img src="start.png" style="position:relative; z-index:50;" onclick="checkCookie()">
     </div>
     <script>
         function checkCookie()
@@ -39,7 +39,7 @@ if (username!="")
   alert("Welcome again " + username);
   window.name = "parentForm";
                 // window.open("open할 window", "자식창 이름", "팝업창 옵션");
-                openWin = window.open("waiting_room/index.html", "childForm", "width=1280, height=700, scrollbars=no, resizable=no, toolbars=no, menubar=no");  
+                openWin = window.open("/waiting_room/index.html", "childForm", "width=1280, height=700, scrollbars=no, resizable=no, toolbars=no, menubar=no");  
   }
 else 
   {
