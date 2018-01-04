@@ -114,9 +114,40 @@
         </div>
 
         <div style="position:absolute; bottom:7.5vh; left:28vw; height:12.5vh; z-index:50;">
-            <img src="../start.png" style="cursor:pointer; height:100%;" alt="스타트 버튼" onclick="drawing_add()">
+            <img id="start_btn" src="../start.png" style="cursor:pointer; height:100%;" alt="스타트 버튼" onclick="drawing_add()">
         </div>
         <script>
+            var width;
+            var trsvg_fun = function() {
+                var trsvg = canvas.toSVG();
+                $('#sdfs').val(trsvg);
+                console.log($('#sdfs').val());
+                $.ajax({
+                    type: 'post',
+                    url: 'test.html',
+                    data: {
+                        'text': $('#sdfs').val()
+                    },
+                    processData: true,
+                    /*contentType : false,*/
+                    success: function(html) {
+                        alert(html);
+                        alert("파일 업로드하였습니다.");
+                    },
+                    error: function(error) {
+                        alert("파일 업로드에 실패하였습니다.");
+                        console.log(error);
+                        console.log(error.status);
+                    }
+                });
+            };
+
+            $('#change_pen_width').change(function() {
+                width = $('#change_pen_width').val();
+                console.log("굵기 : " + width);
+                $('#info_pen_width').text(width);
+                canvas.freeDrawingBrush.width = parseInt(width, 10) || 1;
+            });
             var socket = io.connect('localhost:3000/');
 
             var title = $('#hiddenTitle').val();
@@ -165,43 +196,15 @@
                 $(id).remove();
             });
 
-            var width;
-            var trsvg_fun = function() {
-                var trsvg = canvas.toSVG();
-                $('#sdfs').val(trsvg);
-                console.log($('#sdfs').val());
-                $.ajax({
-                    type: 'post',
-                    url: 'test.html',
-                    data: {
-                        'text': $('#sdfs').val()
-                    },
-                    processData: true,
-                    /*contentType : false,*/
-                    success: function(html) {
-                        alert(html);
-                        alert("파일 업로드하였습니다.");
-                    },
-                    error: function(error) {
-                        alert("파일 업로드에 실패하였습니다.");
-                        console.log(error);
-                        console.log(error.status);
-                    }
-                });
-            };
 
-            $('#change_pen_width').change(function() {
-                width = $('#change_pen_width').val();
-                console.log("굵기 : " + width);
-                $('#info_pen_width').text(width);
-                canvas.freeDrawingBrush.width = parseInt(width, 10) || 1;
-            });
 
             function drawing_add() {
                 var w = document.getElementById('waiting');
                 var i = document.getElementById('owner_drawing');
+                var start_btn = document.getElementById('start_btn');
                 i.classList.remove('hidden_panel');
                 w.classList.add('hidden_panel');
+                start_btn.classList.add('hidden_panel');
             }
         </script>
     </body>

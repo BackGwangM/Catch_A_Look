@@ -24,15 +24,15 @@
                 url: 'http://localhost:8080/login/',
                 data: param,
                 contentType: "application/x-www-form-urlencoded",
-                success: function (data) {
-                    var i = '값을 입력해주세요';
+                success: function(data) {
+                    var i = $("#id").val();
                     $.cookie("Nickname", i, {
                         expire: 1,
                         path: '/'
                     });
                     document.location.href = "../index.html";
                 },
-                error: function (data) {
+                error: function(data) {
                     alert("error!");
                     console.log(data);
                 }
@@ -103,14 +103,14 @@
                     url: 'http://localhost:8080/join/',
                     data: param,
                     contentType: "application/x-www-form-urlencoded",
-                    success: function (data) {
+                    success: function(data) {
                         $.cookie("Nickname", $("#nick_join").val(), {
                             expire: 1,
                             path: '/'
                         });
                         document.location.href = "../index.html";
                     },
-                    error: function (data) {
+                    error: function(data) {
                         alert("error!");
                         console.log(data);
                     }
